@@ -2,7 +2,6 @@ import React from "react"
 import {
   Text,
   View,
-  SafeAreaView,
   useColorScheme,
   StyleSheet
 } from 'react-native'
@@ -10,12 +9,28 @@ import {
 function App() {
   const isDark = useColorScheme() === 'dark';
   return (
-    <SafeAreaView>
-      <View>
-        <Text>Hello World</Text>
-      </View>
-    </SafeAreaView>
+
+    <View style={styles.container} >
+      <Text style ={isDark ? styles.whiteText:styles.darkText}>Hello World</Text>
+    </View>
 
   )
 }
-export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  whiteText: {
+    color: '#FFFFFF',
+    fontSize:30,
+    fontWeight:'bold'
+  },
+  darkText: {
+    color: '#000000',
+    fontSize:30,
+    fontWeight:'bold'
+  }
+})
+export default App
